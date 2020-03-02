@@ -11,7 +11,7 @@ var server = app.listen(port, ()=> {
 
 app
 .get('/', (req, res)=>{
-    res.status(200).sendFile(__dirname + '/index.html')
+    res.status(200).sendFile(__dirname + '\index.html')
 })
 .get('/about', (req, res)=>{
     res.send(`
