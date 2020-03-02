@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Grid</title>
+    <style>
+        html, body, .container { margin: 0;padding: 0;}
+        .container{
+            display:grid;
+            grid-template:
+                "nav    nav     nav" auto
+                "left   middle  right" 1fr
+                "footer footer  footer" auto /
+                200px 1fr 200px;
+                border: 1px solid #000;
+        }
+
+        .topnav {
+            grid-area: nav;
+            border: 1px solid #000;
+        }
+
+        li {float: right; }
+
+        .leftmenu {
+            grid-area: "left";
+            border: 1px solid #000;
+        }
+        .leftmenu a, .footer a { display: block; text-decoration: none; }
+
+        .rightmenu {
+            grid-area: "right";
+            border: 1px solid #000; 
+        }
+
+        .article {
+            grid-area: "middle";
+            border: 1px solid #000;
+            height: 500px;
+        }
+        .footer {
+            grid-row: "footer";
+            grid-column-start: 1;
+            grid-column-end:-1;
+            background-color: linen;
+            text-align: center;
+        }
+        p {text-align: center;}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="topnav">
+            <ul class="navlist">
+                <li>About</li>
+                <li>Home</li>
+                <li>Contact</li>
+            </ul>
+        </header>
+        <div class="leftmenu">
+            <a href="http://" target="_blank" rel="noopener noreferrer">Key Items</a>
+            <a href="http://" target="_blank" rel="noopener noreferrer">New Items</a>
+            <a href="http://" target="_blank" rel="noopener noreferrer">Interests</a>
+        </div>
+        <div class="article">Article section</div>
+        <div class="rightmenu">Settings / right Menu</div>
+        <div class="footer">
+            <a>SOme Link1</a>
+            <a>SOme Link2</a>
+            <a>SOme Link3</a>
+            <a>SOme Link4</a>
+        </div>
+    </div>
+</body>
+</html>

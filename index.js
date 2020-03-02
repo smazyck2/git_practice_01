@@ -16,6 +16,9 @@ app
 .get('/about', (req, res)=>{
     res.sendFile(__dirname + '/websocket.html')
 })
+.get('/grid', (req, res)=>{
+    res.sendFile(__dirname + '/grid.html')
+})
 
 var io = socketIO(server)
 io.on('connection',  (socket)=>{
