@@ -13,6 +13,14 @@ app
 .get('/', (req, res)=>{
     res.status(200).sendFile(__dirname + '/index.html')
 })
+.get('/about', (req, res)=>{
+    res.send(`
+        <html>
+            <head><style>*{color:blue;}</syle></head>
+            <body><h1>Hello Git World!</h1></body>
+        </html>
+    `)
+})
 
 var io = socketIO(server)
 io.on('connection',  (socket)=>{
