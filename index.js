@@ -14,10 +14,15 @@ app
     res.status(200).sendFile(__dirname + '/index.html')
 })
 .get('/about', (req, res)=>{
-    res.send('<p>Show me something</p>')
+    res.sendFile(__dirname + '/websocket.html')
 })
 
 var io = socketIO(server)
 io.on('connection',  (socket)=>{
     console.log('socket connect')
+    socket.on('sent', data=>{
+        console.log(data + " received");
+        socket.broadcast.emit('message', data)
+        console.log(data + " re-broadcasted");
+    })
 })
